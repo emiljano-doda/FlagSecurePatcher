@@ -45,7 +45,7 @@ main() {
 
     log "Patching"
     for DEX in "$TMPPATH/$TARGET_JAR_BASE"/classes*; do
-        if ! OP=$(paccer "$DEX" "$DEX" "$TARGET_JAR_NAME" "$API" 2>&1); then
+        if ! OP=$(paccer "$DEX" "$DEX" "$TARGET_JAR_NAME" 34 2>&1); then
             abort "ERROR: paccer failed '$OP'"
         fi
         echo "$OP" | grep -Fq notifyScreenshotListeners && {
@@ -122,5 +122,6 @@ rm -r "$MODPATH/util"
 
 ui_print ""
 ui_print "  by github.com/j-hc"
+ui_print "  Android 15 Installation Fix"
 
 set +eu
